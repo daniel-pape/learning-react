@@ -24,12 +24,6 @@
         this.timerTick = this.timerTick.bind(this);
       }
 
-      render() {
-        return (
-          <h1>{this.state.strikes}</h1>
-        );
-      }
-
       timerTick() {
         this.setState({
           strikes: this.state.strikes + 100
@@ -38,6 +32,19 @@
 
       componentDidMount() {
         setInterval(this.timerTick, 1000);
+      }
+
+      render() {
+        var counterStyle = {      
+          color: "#66FFFF",
+          fontSize: 50    
+        };
+
+        var count = this.state.strikes;
+
+        return (
+          <h1 style={counterStyle}>{count}</h1>
+        );
       }
     }
  
